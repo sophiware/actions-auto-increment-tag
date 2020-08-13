@@ -25,3 +25,5 @@ function increment (tag) {
     core.setFailed(error.message)
   }
 })()
+
+console.log('star!')
