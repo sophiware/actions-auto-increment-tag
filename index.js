@@ -7,6 +7,7 @@ const github = require('@actions/github');
     const token = core.getInput('token')
     const octokit = github.getOctokit(token)
     const { data } = await octokit.repos.listTags({ owner, repo })
+    console.log({ data })
     const tag = (data && data[0])
       ? data[0].name.replace(/(\d+)(?!.*\d)/g, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1)
       : '0.0.1'
@@ -19,7 +20,7 @@ const github = require('@actions/github');
       object: github.context.sha,
       type: 'commit'
     })
-    console.log({response})
+    console.log({ response })
     core.setOutput('tag', tag)
   } catch (error) {
     console.log('errrrooroor')
