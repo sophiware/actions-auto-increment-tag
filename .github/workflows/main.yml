@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: sophiware/github-actions-auto-increment-tag@v1
+      - uses: sophiware/github-actions-auto-increment-tag@master
