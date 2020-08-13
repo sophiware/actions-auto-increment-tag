@@ -22,9 +22,9 @@ Tag created.
 steps:
   - name: Auto increment tag
     id: tag
-    uses: sophiware/github-actions-auto-increment-tag@v1
+    uses: sophiware/actions-auto-increment-tag@v1
     with:
       token: ${{ secrets.GITHUB_TOKEN }}
   - name: Container tag
-    uses: docker tag mycontainer mycontainer:${{ steps.tag.outputs.tag }}
+    uses: docker tag myname/mycontainer myname/mycontainer:${{ steps.tag.outputs.tag }}
 ```
