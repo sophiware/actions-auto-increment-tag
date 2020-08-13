@@ -1,5 +1,5 @@
 const core = require('@actions/core')
-const github = require('@actions/github')
+const github = require('@actions/github');
 
 (async () => {
   try {
@@ -8,7 +8,7 @@ const github = require('@actions/github')
     const octokit = github.getOctokit(token)
     const { data } = await octokit.repos.listTags({ owner, repo })
     const newTag = (data && data[0])
-      ? data[0].name.replace(/(\d+)(?!.*\d)/, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1)
+      ? data[0].name.replace(/(\d+)(?!.*\d)/g, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1)
       : '0.0.1'
     core.setOutput('tag', newTag)
   } catch (error) {
@@ -17,5 +17,3 @@ const github = require('@actions/github')
     core.setFailed(error.message)
   }
 })()
-
-console.log('star!')
