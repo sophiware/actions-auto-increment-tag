@@ -10,7 +10,8 @@ const github = require('@actions/github');
     const tag = (data && data[0])
       ? data[0].name.replace(/(\d+)(?!.*\d)/g, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1)
       : '0.0.1'
-    await octokit.git.createTag({
+    console.log(`Current tag: ${data && data[0] ? data[0].name : 'no tag'}; New tag: ${tag}`)
+    const response = await octokit.git.createTag({
       owner,
       repo,
       tag,
@@ -18,6 +19,7 @@ const github = require('@actions/github');
       object: github.context.sha,
       type: 'commit'
     })
+    console.log({response})
     core.setOutput('tag', tag)
   } catch (error) {
     console.log('errrrooroor')
