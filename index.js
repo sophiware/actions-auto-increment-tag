@@ -1,5 +1,5 @@
 const core = require('@actions/core')
-const { execSync: exec } = require('child_process')
+const github = require('@actions/github')
 
 function increment (tag) {
   if (tag) {
@@ -17,12 +17,12 @@ function increment (tag) {
 
 (async () => {
   try {
-    const lastTag = exec('git describe').toString().trim()
-    const newTag = increment(lastTag)
-    exec(`git tag -a ${newTag} -m "Auto increment to ${newTag}"`)
-    exec('git push --tags')
-    core.setOutput('tag', newTag)
-    console.log(`New tag created: ${newTag}`)
+    const { owner, repo } = github.context.repo
+    const token = core.getInput('token')
+    const octokit = github.getOctokit(token)
+    const tags = await octokit.repos.listTags({ owner, repo })
+    console.log(tags)
+    core.setOutput('tag', '0')
   } catch (error) {
     core.setFailed(error.message)
   }
