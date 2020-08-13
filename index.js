@@ -17,7 +17,7 @@ function increment (tag) {
 
 (async () => {
   try {
-    const lastTag = exec('git describe HEAD').toString().trim()
+    const lastTag = exec('git describe').toString().trim()
     const newTag = increment(lastTag)
     exec(`git tag -a ${newTag} -m "Auto increment to ${newTag}"`)
     exec('git push --tags')
