@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Increment tag
-      uses: sophiware/github-actions-auto-increment-tag'
+      uses: sophiware/github-actions-auto-increment-tag
