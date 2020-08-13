@@ -10,4 +10,4 @@ Tag created.
 
 ## Exemplo de uso
 
-uses: actions/hello-world-javascript-action@v1
+uses: sophiware/github-actions-auto-increment-tag@v1
