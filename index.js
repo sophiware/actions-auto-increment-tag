@@ -21,6 +21,7 @@ const github = require('@actions/github');
       type: 'commit'
     })
     console.log({ response })
+    console.log({ response.data.verification })
     core.setOutput('tag', tag)
   } catch (error) {
     console.log('errrrooroor')
