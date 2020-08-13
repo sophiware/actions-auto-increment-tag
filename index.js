@@ -10,7 +10,9 @@ const github = require('@actions/github');
     const tag = (data && data[0])
       ? data[0].name.replace(/(\d+)(?!.*\d)/g, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1)
       : '0.0.1'
+
     console.log(`Current tag: ${data && data[0] ? data[0].name : 'no tag'}; New tag: ${tag}`)
+
     const newTag = await octokit.git.createTag({
       owner,
       repo,
@@ -20,7 +22,7 @@ const github = require('@actions/github');
       type: 'commit'
     })
 
-    await github.git.createRef({
+    await octokit.git.createRef({
       owner,
       repo,
       ref: `refs/tags/${newTag.data.tag}`,
