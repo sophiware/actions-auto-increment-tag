@@ -11,6 +11,7 @@ const github = require('@actions/github');
     const newTag = (data && data[0])
       ? data[0].name.replace(/(\d+)(?!.*\d)/g, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1)
       : '0.0.1'
+    console.log({newTag})
     core.setOutput('tag', newTag)
   } catch (error) {
     console.log('errrrooroor')
