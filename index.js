@@ -23,6 +23,7 @@ function increment (tag) {
     core.setOutput('tag', newTag)
   } catch (error) {
     console.log('errrrooroor')
+    console.log(error)
     core.setFailed(error.message)
   }
 })()
