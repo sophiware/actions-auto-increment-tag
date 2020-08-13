@@ -5,5 +5,4 @@ outputs:
     description: 'New tag'
 runs:
   using: 'node12'
-  pre: 'setup.sh'
   main: 'index.js'
