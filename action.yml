@@ -3,6 +3,7 @@ description: 'Add one more to the last number of the tag'
 inputs:
   token:
     description: '${{secrets.GITHUB_TOKEN}}'
+    required: true
 outputs:
   tag:
     description: 'New tag'
