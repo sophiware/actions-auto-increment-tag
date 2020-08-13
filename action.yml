@@ -1,5 +1,8 @@
 name: 'Auto tag increment'
 description: 'Add one more to the last number of the tag'
+inputs:
+  token:
+    description: '${{secrets.GITHUB_TOKEN}}'
 outputs:
   tag:
     description: 'New tag'
