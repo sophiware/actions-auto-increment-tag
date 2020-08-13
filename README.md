@@ -16,7 +16,7 @@ Secret github token: ${{secrets.GITHUB_TOKEN}}
 
 Tag created.
 
-## Exemplo de uso
+## Example
 
 ```yaml
 steps:
