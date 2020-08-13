@@ -6,6 +6,7 @@ const github = require('@actions/github');
     const { owner, repo } = github.context.repo
     const token = core.getInput('token')
     const octokit = github.getOctokit(token)
+    console.log({ owner })
     const { data } = await octokit.repos.listTags({ owner, repo })
     console.log({ data })
     const tag = (data && data[0])
