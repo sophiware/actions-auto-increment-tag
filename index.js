@@ -1,24 +1,13 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 
-function increment (tag) {
-  const tagSplit = tag.split('.')
-
-  if (tagSplit.length > 1) {
-    return [...tagSplit.slice(0, -1), parseInt(tagSplit[tagSplit.length - 1]) + 1].join('.')
-  }
-
-  return parseInt(tagSplit[0]) + 1
-}
-
 (async () => {
   try {
     const { owner, repo } = github.context.repo
     const token = core.getInput('token')
     const octokit = github.getOctokit(token)
     const { data } = await octokit.repos.listTags({ owner, repo })
-    console.log(data)
-    const newTag = (data && data[0]) ? increment(data[0].name) : '0.0.1'
+    const newTag = (data && data[0]) ? data[0].name.replace(/(\d+)(?!.*\d)/, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1) : '0.0.1'
     console.log(newTag)
     core.setOutput('tag', newTag)
   } catch (error) {
