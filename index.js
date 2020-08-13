@@ -8,7 +8,6 @@ const github = require('@actions/github');
     const octokit = github.getOctokit(token)
     console.log({ owner })
     const { data } = await octokit.repos.listTags({ owner, repo })
-    console.log(data[0].commit.sha, github.context.sha)
     const tag = (data && data[0])
       ? data[0].name.replace(/(\d+)(?!.*\d)/g, parseInt(data[0].name.match(/(\d+)(?!.*\d)/)[0]) + 1)
       : '0.0.1'
@@ -18,7 +17,7 @@ const github = require('@actions/github');
       repo,
       tag,
       message: tag,
-      object: data[0].commit.sha,
+      object: github.context.sha,
       type: 'commit'
     })
     console.log({ response })
