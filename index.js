@@ -16,9 +16,9 @@ function increment (tag) {
     const { owner, repo } = github.context.repo
     const token = core.getInput('token')
     const octokit = github.getOctokit(token)
-    const {data} = await octokit.repos.listTags({ owner, repo })
-    const newTag = (data && data[0]) ? increment(data[0].name) ? '0.0.1'
-        console.log(newTag)
+    const { data } = await octokit.repos.listTags({ owner, repo })
+    const newTag = (data && data[0]) ? increment(data[0].name) : '0.0.1'
+    console.log(newTag)
     core.setOutput('tag', newTag)
   } catch (error) {
     core.setFailed(error.message)
