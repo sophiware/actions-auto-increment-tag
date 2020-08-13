@@ -29,6 +29,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c334926d-c027-43ec-a742-847412ca339f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597287724391</updated>
       <workItem from="1597287725546" duration="5524000" />
-      <workItem from="1597294539693" duration="8554000" />
+      <workItem from="1597294539693" duration="8987000" />
     </task>
     <servers />
   </component>
