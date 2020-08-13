@@ -14,7 +14,6 @@ function increment (tag) {
 (async () => {
   try {
     const { owner, repo } = github.context.repo
-    console.log(github.context)
     const token = core.getInput('token')
     const octokit = github.getOctokit(token)
     const { data } = await octokit.repos.listTags({ owner, repo })
