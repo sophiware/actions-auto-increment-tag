@@ -31,8 +31,6 @@ const github = require('@actions/github');
 
     core.setOutput('tag', tag)
   } catch (error) {
-    console.log('errrrooroor')
-    console.log(error)
     core.setFailed(error.message)
   }
 })()
